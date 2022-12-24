@@ -1,8 +1,6 @@
-# GrustnoGram
 
 <div id="header" align="center">
 
-  
   <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/20/92/e6/2092e6d9-bf91-9877-525b-3e7ad56ec758/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x630wa.png" width="600"/>
   
    ### Client for social network https://grustnogram.ru written on java
@@ -56,7 +54,7 @@ import grustnogram.client.auth.login.Login;
 import grustnogram.client.functions.chat.message.Message.SendMessage;
 
 
-public class test {
+public class Test {
 
     public static void main(String[] args){
         Client.loginRequest(new Login("email", "password"));

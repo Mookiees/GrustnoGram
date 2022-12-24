@@ -1,5 +1,10 @@
 package grustnogram;
 
+
+/**
+ * Information about client
+ */
+
 public class Profile {
     public static String name;
     public static String nickname;

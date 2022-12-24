@@ -1,10 +1,10 @@
-package grustnogram.client.auth.Register;
+package grustnogram.client.auth.register;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -24,7 +24,7 @@ public class Register extends Settings {
 
     }
 
-    public static String RegisterRequest(){
+    public static String registerRequest(){
         RequestBody body = new FormBody.Builder()
                 .add("email", email)
                 .add("password", password)

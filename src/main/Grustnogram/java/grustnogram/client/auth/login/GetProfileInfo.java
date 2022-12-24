@@ -1,21 +1,21 @@
 package grustnogram.client.auth.login;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.Request;
 
 import java.io.IOException;
 
-public class GetMyProfileInfo extends Settings {
-    public static String nickname;
+public class GetProfileInfo extends Settings {
+    public static String nicknames;
 
-    public GetMyProfileInfo(String nickname){
-        GetMyProfileInfo.nickname = nickname;
+    public GetProfileInfo(String nickname){
+        GetProfileInfo.nicknames = nickname;
     }
 
-    public static void GetMyProfileInfoRequest(){
+    public static void getProfileInfoRequest(){
         Request request = new Request.Builder()
                 .addHeader("Access-Token", token)
-                .url(api + "/users/" + nickname)
+                .url(api + "/users/" + nicknames)
                 .get()
                 .build();
         try {

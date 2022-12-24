@@ -1,9 +1,9 @@
-package grustnogram.client.auth.Register;
+package grustnogram.client.auth.register;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 
 import okhttp3.FormBody;
 import okhttp3.Request;
@@ -19,7 +19,7 @@ public class PhoneActive extends Settings {
         PhoneActive.code = code;
     }
 
-    public static void PhoneActiveRequest(){
+    public static void phoneActiveRequest(){
 
         RequestBody body = new FormBody.Builder()
                 .add("phone", phone)

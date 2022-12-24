@@ -1,6 +1,6 @@
 package grustnogram.client.functions.post.comments;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -14,7 +14,7 @@ public class CommentLike extends Settings {
         CommentLike.comment_id = comment_id;
     }
 
-    public static void CommentLikeRequest(){
+    public static void commentLikeRequest(){
         RequestBody body = new FormBody.Builder().build();
         Request request = new Request.Builder()
                 .addHeader("Access-Token", token)

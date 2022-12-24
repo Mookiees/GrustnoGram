@@ -1,4 +1,4 @@
-package grustnogram.settings.Settings;
+package grustnogram.settings;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

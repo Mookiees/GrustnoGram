@@ -1,6 +1,6 @@
 package grustnogram.client.functions.post.comments;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.Request;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.io.IOException;
             CommentDelete.comment_id = comment_id;
         }
 
-        public static void CommentDeleteRequest(){
+        public static void commentDeleteRequest(){
             Request request = new Request.Builder()
                     .addHeader("Access-Token", token)
                     .url(api + "/posts/comments/" + comment_id)

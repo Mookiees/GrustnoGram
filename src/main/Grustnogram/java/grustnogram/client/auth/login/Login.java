@@ -19,7 +19,7 @@ public class Login extends Client {
         Password = password;
     }
     
-    public static void LoginRequest() {
+    public static void loginRequest() {
 
 
         RequestBody body = new FormBody.Builder()

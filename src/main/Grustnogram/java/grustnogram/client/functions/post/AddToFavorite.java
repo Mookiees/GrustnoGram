@@ -1,6 +1,6 @@
 package grustnogram.client.functions.post;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -14,7 +14,7 @@ public class AddToFavorite extends Settings {
         AddToFavorite.post_id = post_id;
     }
 
-    public static void AddToFavoriteRequest(){
+    public static void addToFavoriteRequest(){
         RequestBody body = new FormBody.Builder().build();
         Request request = new Request.Builder()
                 .addHeader("Access-Token", token)

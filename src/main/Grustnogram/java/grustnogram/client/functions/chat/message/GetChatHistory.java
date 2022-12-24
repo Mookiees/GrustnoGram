@@ -1,6 +1,6 @@
 package grustnogram.client.functions.chat.message;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.Request;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class GetChatHistory extends Settings {
             GetChatHistory.count = count;
             GetChatHistory.element = element;
         }
-        public static List GetChatHistoryRequest(){
+        public static List getChatHistoryRequest(){
 
             Request request = new Request.Builder()
                     .addHeader("Access-Token", token)

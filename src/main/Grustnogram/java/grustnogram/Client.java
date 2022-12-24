@@ -1,9 +1,9 @@
 package grustnogram;
 
-import grustnogram.client.auth.Register.PhoneActive;
-import grustnogram.client.auth.Register.Register;
-import grustnogram.client.auth.Register.SendVerificationCode;
-import grustnogram.client.auth.login.GetMyProfileInfo;
+import grustnogram.client.auth.login.GetProfileInfo;
+import grustnogram.client.auth.register.PhoneActive;
+import grustnogram.client.auth.register.Register;
+import grustnogram.client.auth.register.SendVerificationCode;
 import grustnogram.client.auth.login.Login;
 import grustnogram.client.functions.chat.GetMyChat;
 import grustnogram.client.functions.chat.GetPopularChat;
@@ -11,17 +11,20 @@ import grustnogram.client.functions.chat.LeftFromChat;
 import grustnogram.client.functions.chat.JoinToChat;
 import grustnogram.client.functions.chat.LeftFromDialog;
 import grustnogram.client.functions.chat.JoinToPrivateChat;
-import grustnogram.client.functions.chat.message.DeleteMessage;
 import grustnogram.client.functions.chat.message.GetChatHistory;
-import grustnogram.client.functions.chat.message.SendMessage;
+import grustnogram.client.functions.chat.message.Message;
 import grustnogram.client.functions.post.AddToFavorite;
 import grustnogram.client.functions.post.LikePost;
 import grustnogram.client.functions.post.SecretPost;
 import grustnogram.client.functions.post.comments.CommentAdd;
 import grustnogram.client.functions.post.comments.CommentDelete;
 import grustnogram.client.functions.post.comments.CommentLike;
-import grustnogram.client.functions.profile.members.*;
-import grustnogram.settings.Settings.Settings;
+import grustnogram.client.functions.members.Block;
+import grustnogram.client.functions.members.UnBlock;
+import grustnogram.client.functions.members.Follow;
+import grustnogram.client.functions.members.GetHands;
+import grustnogram.client.functions.members.UnFollow;
+import grustnogram.settings.Settings;
 
 import java.util.List;
 
@@ -42,8 +45,8 @@ public class Client extends Settings {
     // params -> Email or Nickname | Password
     // return -> a token for further actions
     // -----------------------------------------------
-    public static void LoginRequest(Login login) {
-        Login.LoginRequest();
+    public static void loginRequest(Login login) {
+        Login.loginRequest();
     }
 
     // -----------------------------------------------
@@ -51,8 +54,8 @@ public class Client extends Settings {
     // params -> code from sms
     // return -> a token for further actions
     // -----------------------------------------------
-    public static void PhoneActiveRequest(PhoneActive phonceActive) {
-        PhoneActive.PhoneActiveRequest();
+    public static void phoneActiveRequest(PhoneActive phonceActive) {
+        PhoneActive.phoneActiveRequest();
     }
 
     // -----------------------------------------------
@@ -60,8 +63,8 @@ public class Client extends Settings {
     // params -> Email | Password | Nickname for account
     // return -> phone key for SendVerificationCode
     // -----------------------------------------------
-    public static String RegisterRequest(Register register) {
-        return Register.RegisterRequest();
+    public static String registerRequest(Register register) {
+        return Register.registerRequest();
     }
 
     // -----------------------------------------------
@@ -69,17 +72,17 @@ public class Client extends Settings {
     // params -> PhoneKey from RegisterRequest | Your PhoneNumber
     // return -> nothing
     // -----------------------------------------------
-    public static String SendVerificationCodeRequest(SendVerificationCode sendVerificationCode) {
-        return SendVerificationCode.SendVerificationCodeRequest();
+    public static String sendVerificationCodeRequest(SendVerificationCode sendVerificationCode) {
+        return SendVerificationCode.sendVerificationCodeRequest();
     }
 
     // -----------------------------------------------
-    // GetMyProfileInfo
+    // getMyProfileInfo
     // params -> Nickname
     // return -> All info about your account
     // -----------------------------------------------
-    public static void GetMyProfileInfo(GetMyProfileInfo getMyProfileInfo) {
-        grustnogram.client.auth.login.GetMyProfileInfo.GetMyProfileInfoRequest();
+    public static void getProfileInfo(GetProfileInfo getProfileInfo) {
+        GetProfileInfo.getProfileInfoRequest();
     }
 
     // Chat Method's
@@ -91,8 +94,8 @@ public class Client extends Settings {
     // params -> count ( limit ) | element ( what information do you want to take )
     // return -> List
     // -----------------------------------------------
-    public static List GetMyChatRequest(GetMyChat getMyChat) {
-        return GetMyChat.GetMyChatRequest();
+    public static List getMyChatRequest(GetMyChat getMyChat) {
+        return GetMyChat.getMyChatRequest();
     }
 
     // -----------------------------------------------
@@ -100,8 +103,8 @@ public class Client extends Settings {
     // params -> count ( limit ) | element ( what information do you want to take )
     // return -> List
     // -----------------------------------------------
-    public static List GetPopularChatRequest(GetPopularChat getPopularChat) {
-        return GetPopularChat.GetPopularChatRequest();
+    public static List getPopularChatRequest(GetPopularChat getPopularChat) {
+        return GetPopularChat.getPopularChatRequest();
     }
 
     // -----------------------------------------------
@@ -109,8 +112,8 @@ public class Client extends Settings {
     // params -> chat_id
     // return -> nothing
     // -----------------------------------------------
-    public static void JoinChatRequest(JoinToChat joinChat) {
-        JoinToChat.JoinToChatRequest();
+    public static void joinChatRequest(JoinToChat joinChat) {
+        JoinToChat.joinToChatRequest();
     }
 
     // -----------------------------------------------
@@ -118,8 +121,8 @@ public class Client extends Settings {
     // params -> chat_id | text_to_request
     // return -> nothing
     // -----------------------------------------------
-    public static void JoinToPrivateChatRequest(JoinToPrivateChat joinPrivateChat) {
-        JoinToPrivateChat.JoinToPrivateChatRequest();
+    public static void joinToPrivateChatRequest(JoinToPrivateChat joinPrivateChat) {
+        JoinToPrivateChat.joinToPrivateChatRequest();
     }
 
     // -----------------------------------------------
@@ -127,8 +130,8 @@ public class Client extends Settings {
     // params -> chat_id
     // return -> nothing
     // -----------------------------------------------
-    public static void LeftFromChatRequest(LeftFromChat leftFromChat) {
-        LeftFromChat.LeftFromChatRequest();
+    public static void leftFromChatRequest(LeftFromChat leftFromChat) {
+        LeftFromChat.leftFromChatRequest();
     }
 
     // -----------------------------------------------
@@ -136,28 +139,19 @@ public class Client extends Settings {
     // params -> user_id
     // return -> nothing
     // -----------------------------------------------
-    public static void LeftFromDialogRequest(LeftFromDialog leftFromDialog) {
-        LeftFromDialog.LeftFromDialogRequest();
+    public static void leftFromDialogRequest(LeftFromDialog leftFromDialog) {
+        LeftFromDialog.leftFromDialogRequest();
     }
 
     // Message Method's
-
-    // -----------------------------------------------
-    // DeleteMessageRequest
-    // params -> message_id
-    // return -> nothing
-    // -----------------------------------------------
-    public static void DeleteMessageRequest(DeleteMessage deleteMessage) {
-        DeleteMessage.DeleteMessageRequest();
-    }
 
     // -----------------------------------------------
     // GetChatHistoryRequest
     // params -> id ( chat_id ) | count ( limit ) | element
     // return -> List
     // -----------------------------------------------
-    public static List GetChatHistoryRequest(GetChatHistory getChatHistoryRequest) {
-        return GetChatHistory.GetChatHistoryRequest();
+    public static List getChatHistoryRequest(GetChatHistory getChatHistoryRequest) {
+        return GetChatHistory.getChatHistoryRequest();
     }
 
     // -----------------------------------------------
@@ -165,10 +159,18 @@ public class Client extends Settings {
     // params -> chat_id | message_text
     // return -> nothing
     // -----------------------------------------------
-    public static void SendMessageRequest(SendMessage sendMessage) {
-        SendMessage.SendMessageRequest();
-    }
+    public static void sendMessageRequest(Message.SendMessage sendmessage){
+        sendmessage.sendMessageRequest();}
 
+
+    // -----------------------------------------------
+    // DeleteMessageRequest
+    // params -> message_id
+    // return -> nothing
+    // -----------------------------------------------
+    public static void deleteMessageRequest(Message.DeleteMessage deleteMessage){
+        Message.DeleteMessage.deleteMessageRequest();
+    }
     // Post Method's
 
     // -----------------------------------------------
@@ -176,8 +178,8 @@ public class Client extends Settings {
     // params -> post_id
     // return -> nothing
     // -----------------------------------------------
-    public static void AddToFavouriteRequest(AddToFavorite addToFavorite) {
-        AddToFavorite.AddToFavoriteRequest();
+    public static void addToFavouriteRequest(AddToFavorite addToFavorite) {
+        AddToFavorite.addToFavoriteRequest();
     }
 
     // -----------------------------------------------
@@ -185,8 +187,8 @@ public class Client extends Settings {
     // params -> post_id
     // return -> nothing
     // -----------------------------------------------
-    public static void LikePostRequest(LikePost likePost) {
-        LikePost.LikePostRequest();
+    public static void likePostRequest(LikePost likePost) {
+        LikePost.likePostRequest();
     }
 
     // -----------------------------------------------
@@ -194,8 +196,8 @@ public class Client extends Settings {
     // params -> text ( min 32 word's) | comment_of ( 1 true, 0 false )
     // return -> nothing
     // -----------------------------------------------
-    public static void SecretPostRequest(SecretPost secretPost) {
-        SecretPost.PostSecretRequest();
+    public static void secretPostRequest(SecretPost secretPost) {
+        SecretPost.postSecretRequest();
     }
 
     // Comments Method's
@@ -205,8 +207,8 @@ public class Client extends Settings {
     // params -> text | post_id | reply_to | private_status ( 1 true, 0 false )
     // return -> nothing
     // -----------------------------------------------
-    public static void CommentAddRequest(CommentAdd addComment) {
-        CommentAdd.AddCommentRequest();
+    public static void commentAddRequest(CommentAdd addComment) {
+        CommentAdd.addCommentRequest();
     }
 
     // -----------------------------------------------
@@ -214,8 +216,8 @@ public class Client extends Settings {
     // params -> comment_id
     // return -> nothing
     // -----------------------------------------------
-    public static void CommentDeleteRequest(CommentDelete commentDelete) {
-        CommentDelete.CommentDeleteRequest();
+    public static void commentDeleteRequest(CommentDelete commentDelete) {
+        CommentDelete.commentDeleteRequest();
     }
 
     // -----------------------------------------------
@@ -223,8 +225,8 @@ public class Client extends Settings {
     // params -> comment_id
     // return -> nothing
     // -----------------------------------------------
-    public static void CommentLikeRequest(CommentLike commentLike) {
-        CommentLike.CommentLikeRequest();
+    public static void commentLikeRequest(CommentLike commentLike) {
+        CommentLike.commentLikeRequest();
     }
 
     // Members Method's
@@ -234,7 +236,7 @@ public class Client extends Settings {
     // params -> user_id
     // return -> nothing
     // -----------------------------------------------
-    public static void BlockRequest(Block block) {
+    public static void blockRequest(Block block) {
         Block.BlockRequest();
     }
 
@@ -243,7 +245,7 @@ public class Client extends Settings {
     // params -> user_id
     // return -> nothing
     // -----------------------------------------------
-    public static void FollowRequest(Follow follow) {
+    public static void followRequest(Follow follow) {
         Follow.FollowRequest();
     }
 
@@ -252,7 +254,7 @@ public class Client extends Settings {
     // params -> count ( limit ) | element
     // return -> List
     // -----------------------------------------------
-    public static List GetHandsRequest(GetHands getHands) {
+    public static List getHandsRequest(GetHands getHands) {
         return GetHands.GetHandsRequest();
     }
 
@@ -261,7 +263,7 @@ public class Client extends Settings {
     // params -> user_id
     // return -> nothing
     // -----------------------------------------------
-    public static void UnBlockRequest(UnBlock unBlock) {
+    public static void unBlockRequest(UnBlock unBlock) {
         UnBlock.UnBlockRequest();
     }
 
@@ -270,7 +272,7 @@ public class Client extends Settings {
     // params -> user_id
     // return -> nothing
     // -----------------------------------------------
-    public static void UnFollow(UnFollow unFollow) {
+    public static void unFollow(UnFollow unFollow) {
         UnFollow.UnFollowRequest();
     }
 }

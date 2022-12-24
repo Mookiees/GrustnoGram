@@ -1,6 +1,6 @@
 package grustnogram.client.functions.post;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -18,7 +18,7 @@ public class SecretPost extends Settings {
         SecretPost.text = text;
     }
 
-    public static void PostSecretRequest(){
+    public static void postSecretRequest(){
         RequestBody body = new FormBody.Builder()
                 .add("secret", text)
                 .add("comment_of", comment_off)

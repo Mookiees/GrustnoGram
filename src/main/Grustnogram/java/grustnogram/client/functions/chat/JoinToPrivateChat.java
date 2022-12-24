@@ -1,6 +1,6 @@
 package grustnogram.client.functions.chat;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -17,7 +17,7 @@ public class JoinToPrivateChat extends Settings {
         JoinToPrivateChat.request_text = request_text;
     }
 
-    public static void JoinToPrivateChatRequest(){
+    public static void joinToPrivateChatRequest(){
         RequestBody body = new FormBody.Builder()
                 .add("id", chat_id)
                 .add("request", request_text)

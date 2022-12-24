@@ -1,6 +1,6 @@
-package grustnogram.client.functions.profile.members;
+package grustnogram.client.functions.members;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.Request;
 
 import java.io.IOException;

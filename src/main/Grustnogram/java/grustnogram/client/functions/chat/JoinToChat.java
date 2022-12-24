@@ -1,6 +1,6 @@
 package grustnogram.client.functions.chat;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -15,7 +15,7 @@ public class JoinToChat extends Settings {
         JoinToChat.chat_id = chat_id;
     }
 
-    public static void JoinToChatRequest(){
+    public static void joinToChatRequest(){
         RequestBody body = new FormBody.Builder()
                 .add("id", chat_id)
                 .build();

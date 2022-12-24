@@ -1,6 +1,6 @@
 package grustnogram.client.functions.chat;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.Request;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class LeftFromDialog extends Settings {
         LeftFromDialog.id = id;
     }
 
-    public static void LeftFromDialogRequest(){
+    public static void leftFromDialogRequest(){
         Request request = new Request.Builder()
                 .addHeader("Access-Token", token)
                 .url(api + "/circles/" + id)

@@ -1,6 +1,6 @@
-package grustnogram.client.auth.Register;
+package grustnogram.client.auth.register;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -19,7 +19,7 @@ public class SendVerificationCode extends Settings {
     }
 
 
-    public static String SendVerificationCodeRequest() {
+    public static String sendVerificationCodeRequest() {
 
         RequestBody body = new FormBody.Builder()
                 .add("phone_key", phone_key)

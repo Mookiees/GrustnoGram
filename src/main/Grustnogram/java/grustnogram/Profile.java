@@ -1,6 +1,5 @@
 package grustnogram;
 
-
 public class Profile {
     public static String name;
     public static String nickname;

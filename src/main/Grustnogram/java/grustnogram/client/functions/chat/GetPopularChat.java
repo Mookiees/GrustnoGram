@@ -1,6 +1,6 @@
 package grustnogram.client.functions.chat;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.Request;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class GetPopularChat extends Settings {
         GetPopularChat.count = count;
         GetPopularChat.element = element;
     }
-    public static List GetPopularChatRequest(){
+    public static List getPopularChatRequest(){
         Request request = new Request.Builder()
                 .addHeader("Access-Token", token)
                 .url(api + "/circles?type=2&limit=" + count)

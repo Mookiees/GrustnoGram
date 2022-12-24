@@ -1,6 +1,6 @@
 package grustnogram.client.functions.post.comments;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.settings.Settings;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -22,7 +22,7 @@ public class CommentAdd extends Settings {
         CommentAdd.private_status = private_status;
     }
 
-    public static void AddCommentRequest(){
+    public static void addCommentRequest(){
         RequestBody body = new FormBody.Builder()
                 .add("comment", text)
                 .add("reply_to", reply_to)

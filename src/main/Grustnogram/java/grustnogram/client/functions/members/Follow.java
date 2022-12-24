@@ -1,40 +1,41 @@
-package grustnogram.client.functions.profile.members;
+package grustnogram.client.functions.members;
 
-import grustnogram.settings.Settings.Settings;
+import grustnogram.Client;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
 import java.io.IOException;
 
-public class Block extends Settings {
+public class Follow extends Client {
 
-    public static String UserID;
+    public static String userID;
 
-    Block(String UserID) {
-        Block.UserID = UserID;
+    public Follow(String userID){
+        Follow.userID = userID;
     }
 
-    public static void BlockRequest() {
+    public static void FollowRequest(){
+
+
         RequestBody body = new FormBody.Builder().build();
+
         Request request = new Request.Builder()
                 .addHeader("Access-Token", token)
+                .url(api + "/users/"+ userID + "/follow")
                 .post(body)
-                .url(api + "/users/" + UserID + "/block")
                 .build();
 
         try {
-
             String c = client.newCall(request).execute().body().string();
-            if (!"no error".equals(err_getter(c))) {
-                System.out.println("Block error : " + err_getter(c));
+            if(!"no error".equals(err_getter(c))){
+                System.out.println("Subscribe error : " + err_getter(c));
             }
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
     }
-}
 
+
+}

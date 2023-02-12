@@ -7,15 +7,16 @@
 </div>
 
 ### Login Example:
+
 ```Java
-import grustnogram.Client;
-import grustnogram.client.auth.login.Login;
+import grustnogramm.client.auth.login.Login;
 
 public class Test {
-    public static void main(String[] args){
-        Client.loginRequest(new Login("email", "password"));
-        
-    }
+   public static void main(String[] args){
+       
+      Client.loginRequest(new Login("Email", "Password"));
+      
+   }
 }
 
 ```
@@ -23,46 +24,44 @@ public class Test {
 ### Register Example:
 
 ```Java
-import grustnogram.Client;
-import grustnogram.client.auth.register.PhoneActive;
-import grustnogram.client.auth.register.Register;
-import grustnogram.client.auth.register.SendVerificationCode;
+import grustnogramm.client.auth.login.Login;
+import grustnogramm.client.functions.chat.message.Message;
+import grustnogramm.client.auth.register.PhoneActive;
+import grustnogramm.client.auth.register.Register;
+import grustnogramm.client.auth.register.SendVerificationCode;
 
 import java.util.Scanner;
 
 public class Test {
+   public static void main(String[] args) {
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
 
-        String phone_key = Client.registerRequest(new Register("nickname", "email", "password"));
-        Client.sendVerificationCodeRequest(new SendVerificationCode("+7xxxxxxxxxx", phone_key));
+      String phone_key = Client.registerRequest(new Register("nickname", "email", "password"));
+      Client.sendVerificationCodeRequest(new SendVerificationCode("+7xxxxxxxxxx", phone_key));
 
-        System.out.print("Enter Code: ");
-        String code = sc.nextLine();
-        Client.phoneActiveRequest(new PhoneActive(code));
+      System.out.print("Enter Code: ");
 
+      String code = sc.nextLine();
+      Client.phoneActiveRequest(new PhoneActive(code));
 
-    }
+   }
+
 }
 
 ```
 ### Send Message Example:
+
 ```Java
-import grustnogram.Client;
-import grustnogram.client.auth.login.Login;
-import grustnogram.client.functions.chat.message.Message.SendMessage;
-
-
 public class Test {
+   public static void main(String[] args) {
 
-    public static void main(String[] args){
-        Client.loginRequest(new Login("email", "password"));
-        Client.sendMessageRequest(new SendMessage("chat_id", "Hello from GrustnoGramm Client!"));
-
+      Client.loginRequest(new Login("email", "password"));
+      Client.sendMessageRequest(new Message.SendMessage("chat_id", "Hello from grustnogramm Client!"));
+      
     }
+    
 }
 ```
 
-if you have any questions, u can write me on telegram @Mookiees
 

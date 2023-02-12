@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class GetProfileInfo extends Settings {
 
-
     public static String nicknames;
 
     /**
@@ -39,8 +38,6 @@ public class GetProfileInfo extends Settings {
             Profile.id = json_parse_element(xarl, "id");
             Profile.follow = json_parse_element(xarl, "follow");
             Profile.followers = json_parse_element(xarl, "followers");
-
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -44,11 +44,9 @@ public class Client extends Settings {
         PhoneActive.phoneActiveRequest();
     }
 
-
     public static String registerRequest(Register register) {
         return Register.registerRequest();
     }
-
 
     public static String sendVerificationCodeRequest(SendVerificationCode sendVerificationCode) {
         return SendVerificationCode.sendVerificationCodeRequest();
@@ -57,7 +55,6 @@ public class Client extends Settings {
     public static void getProfileInfo(GetProfileInfo getProfileInfo) {
         GetProfileInfo.getProfileInfoRequest();
     }
-
 
     public static List getMyChatRequest(GetMyChat getMyChat) {
         return GetMyChat.getMyChatRequest();
@@ -79,11 +76,9 @@ public class Client extends Settings {
         LeftFromChat.leftFromChatRequest();
     }
 
-
     public static void leftFromDialogRequest(LeftFromDialog leftFromDialog) {
         LeftFromDialog.leftFromDialogRequest();
     }
-
 
     public static List getChatHistoryRequest(GetChatHistory getChatHistoryRequest) {
         return GetChatHistory.getChatHistoryRequest();
